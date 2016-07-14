@@ -1,17 +1,30 @@
 # vagrant-ubuntu-python-selenium
-VagrantFile to launch the minimal environment for a Python Selenium testing environment.
+Vagrantfile to launch the minimal environment for a Python Selenium(chromedriver) testing environment on Ubuntu. — Edit
+
 
 # Usage
 
 ```
 git clone https://github.com/techistheway/vagrant-ubuntu-python-selenium
 cd vagrant-ubuntu-python-selenium
-vagrant init;vagrant up
+vagrant up
 ```
+
+* Open console for the vm.
+* Login with user vagrant and password vagrant.
+* run ```startx```
+* Resize the console window to fit your application.
+* Run your selenium scripts
+
+```
+vagrant@vagrant-ubuntu-trusty-64:~$ /vagrant/example.py
+Found Google!
+```
+
 
 # SSH Forwarding tips
 
-# Local Port Forward:
+# Local Port Forward
 
 If you want to access a port hosted on the guest from the host, use a local port forward.
 
