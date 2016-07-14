@@ -17,8 +17,13 @@ vagrant up
 * Open console for the vm.
 * Login with user vagrant and password vagrant.
 * run ```startx```
-*
+* Resize the console window to fit your application.
+* Run your selenium scripts
 
+```
+vagrant@vagrant-ubuntu-trusty-64:~$ /vagrant/example.py
+Found Google!
+```
 
 # SSH Forwarding tips
 
