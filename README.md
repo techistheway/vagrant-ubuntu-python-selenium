@@ -3,21 +3,20 @@ VagrantFile to launch the minimal environment for a Python Selenium testing envi
 
 # Usage
 
-
+```
 git clone https://github.com/techistheway/vagrant-ubuntu-python-selenium
-
 cd vagrant-ubuntu-python-selenium
-
 vagrant init;vagrant up
+```
 
 # SSH Forwarding tips
 
-# # Local Port Forward:
+# Local Port Forward:
 
 If you want to access a port hosted on the guest from the host, use a local port forward.
 
 
-vagrant ssh -- L3000:localhost:3000 L4000:localhost:4000
+vagrant ssh -- -L3000:localhost:3000 -L4000:localhost:4000
 
 
 ```
@@ -27,7 +26,7 @@ vagrant ssh -- L3000:localhost:3000 L4000:localhost:4000
 -L local_socket:remote_socket
 ```
 
-# # Remote Port Forward
+# Remote Port Forward
 
 If you want to access a port hosted on the host from the guest, use a remote port forward.
 
@@ -46,7 +45,7 @@ vagrant ssh -- -R4000:localhost:4000 -R5000:localhost:5000
 
 chromedriver's handling of screenshots only captures what's in the browser's viewport. This function will scroll the page down until the end, taking one screenshot per scroll.
 
-Note that there will be some overlap on the lap page. This can be handled, but I didn't for my use case.
+Note that there will be some overlap on the last page. This can be handled, but I didn't for my use case.
 
 ```
 def screenshot(page,name):
