@@ -60,7 +60,7 @@ Note that there will be some overlap on the last page. This can be handled, but 
 
 ```
 def screenshot(page,name):
-    if page is not None:
+    if page is not None: # if you supply None, it will screenshot the current viewport. Useful for non-url page changes.
         driver.get(page)
     time.sleep(1)
     total_width = driver.execute_script("return document.body.offsetWidth")
