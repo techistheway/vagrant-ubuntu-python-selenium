@@ -1,11 +1,7 @@
 # vagrant-ubuntu-python-selenium
 Vagrantfile to launch the minimal environment for a Python Selenium(chromedriver) testing environment on Ubuntu. This is not a Selenium server, but a minimal execution environment to run Python3 selenium tests.
 
-Bandwidth needed:
-
-800 MB for trusty64 box
-
-260 MB for packages
+Tests run through Xvfb, so using the console window isn't needed, tests can be ran entirely from the command line. Yes, even screenshots. No more screen changes taking your OS focus away.
 
 # Usage
 
@@ -13,8 +9,9 @@ Bandwidth needed:
 git clone https://github.com/techistheway/vagrant-ubuntu-python-selenium
 cd vagrant-ubuntu-python-selenium
 vagrant up
+vagrant ssh
 ```
-vagrant ssh 
+
 
 * Run your selenium scripts
 
@@ -23,33 +20,9 @@ vagrant@vagrant-ubuntu-trusty-64:~$ /vagrant/example.py
 Found Google!
 ```
 
-If you want to run the tests completely from ssh, you can use xvfb.
-
-```
-vagrant@vagrant-ubuntu-trusty-64:~$ Xvfb-run /vagrant/example.py
-Found Google!
-```
-
-How do it 
-
 # SSH Forwarding tips
 
 Sometimes you want to access an internal network host, you can remote port forward
-
-# Local Port Forward
-
-If you want to access a port hosted on the guest from the host, use a local port forward.
-
-
-vagrant ssh -- -L3000:localhost:3000 -L4000:localhost:4000
-
-
-```
--L [bind_address:]port:host:hostport
--L [bind_address:]port:remote_socket
--L local_socket:host:hostport
--L local_socket:remote_socket
-```
 
 # Remote Port Forward
 
@@ -64,6 +37,21 @@ vagrant ssh -- -R4000:localhost:4000 -R5000:localhost:5000
 -R [bind_address:]port:local_socket
 -R remote_socket:host:hostport
 -R remote_socket:local_socket
+```
+
+# Local Port Forward
+
+If you want to access a port hosted on the guest from the host, use a local port forward.
+
+
+vagrant ssh -- -L3000:localhost:3000 -L4000:localhost:4000
+
+
+```
+-L [bind_address:]port:host:hostport
+-L [bind_address:]port:remote_socket
+-L local_socket:host:hostport
+-L local_socket:remote_socket
 ```
 
 # Screenshots for long pages
@@ -96,9 +84,12 @@ def screenshot(page,name):
         driver.save_screenshot("screens/" + name + ".png")
 ```
 
-You could also use the ```set_window_size()``` property. The size of the Xvfb window is located in /etc/init.d/xvfb.
+You could also use the ```set_window_size()```  or ```maximize_window()``` property. The size of the Xvfb window is located in /etc/init.d/xvfb.
 
 ```
+# Python
 driver.set_window_size(2000, 2000)
+
+# /etc/init.d/xvfb
 XVFBARGS=":1 -screen 0 2200x2200x24+32 -ac +extension GLX +render -noreset"
 ```
