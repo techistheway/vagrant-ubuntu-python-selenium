@@ -1,9 +1,10 @@
 # vagrant-ubuntu-python-selenium
-Vagrantfile to launch the minimal environment for a Python Selenium(chromedriver) testing environment on Ubuntu. — Edit
+Vagrantfile to launch the minimal environment for a Python Selenium(chromedriver) testing environment on Ubuntu. This is not a Selenium server, but a minimal execution environment to run Python3 selenium tests.
 
 Bandwidth needed:
 
 800 MB for trusty64 box
+
 260 MB for packages
 
 # Usage
@@ -16,7 +17,7 @@ vagrant up
 
 * Open console for the vm.
 * Login with user vagrant and password vagrant.
-* run ```startx```
+* Run ```startx```
 * Resize the console window to fit your application.
 * Run your selenium scripts
 
@@ -25,7 +26,16 @@ vagrant@vagrant-ubuntu-trusty-64:~$ /vagrant/example.py
 Found Google!
 ```
 
+If you want to run the tests completely from ssh, you can use xvfb.
+
+```
+vagrant@vagrant-ubuntu-trusty-64:~$ Xvfb-run /vagrant/example.py
+Found Google!
+```
+
 # SSH Forwarding tips
+
+Sometimes you want to access an internal network host, you can remote port forward
 
 # Local Port Forward
 
