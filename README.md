@@ -91,4 +91,7 @@ driver.set_window_size(2000, 2000)
 
 # /etc/init.d/xvfb
 XVFBARGS=":1 -screen 0 2200x2200x24+32 -ac +extension GLX +render -noreset"
+
+# Shell
+sudo service xvfb restart
 ```
