@@ -95,3 +95,10 @@ def screenshot(page,name):
     else:
         driver.save_screenshot("screens/" + name + ".png")
 ```
+
+You could also use the ```set_window_size()``` property. The size of the Xvfb window is located in /etc/init.d/xvfb.
+
+```
+driver.set_window_size(2000, 2000)
+XVFBARGS=":1 -screen 0 2200x2200x24+32 -ac +extension GLX +render -noreset"
+```
