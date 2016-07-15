@@ -85,13 +85,13 @@ def screenshot(page,name):
 You could also use the ```set_window_size()```  or ```maximize_window()``` property. The size of the Xvfb window is located in /etc/init.d/xvfb.
 
 ```
-# Python
-driver = webdriver.Chrome()
-driver.set_window_size(2000, 2000)
-
 # /etc/init.d/xvfb
 XVFBARGS=":1 -screen 0 2200x2200x24+32 -ac +extension GLX +render -noreset"
 
 # Shell
 sudo service xvfb restart
+
+# Python
+driver = webdriver.Chrome()
+driver.set_window_size(2000, 2000)
 ```
