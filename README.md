@@ -14,11 +14,8 @@ git clone https://github.com/techistheway/vagrant-ubuntu-python-selenium
 cd vagrant-ubuntu-python-selenium
 vagrant up
 ```
+vagrant ssh 
 
-* Open console for the vm.
-* Login with user vagrant and password vagrant.
-* Run ```startx```
-* Resize the console window to fit your application.
 * Run your selenium scripts
 
 ```
@@ -32,6 +29,8 @@ If you want to run the tests completely from ssh, you can use xvfb.
 vagrant@vagrant-ubuntu-trusty-64:~$ Xvfb-run /vagrant/example.py
 Found Google!
 ```
+
+How do it 
 
 # SSH Forwarding tips
 
