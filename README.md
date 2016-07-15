@@ -5,6 +5,8 @@ Tests run through Xvfb, so using the console window isn't needed, tests can be r
 
 # Usage
 
+* Prepare the VM
+
 ```
 git clone https://github.com/techistheway/vagrant-ubuntu-python-selenium
 cd vagrant-ubuntu-python-selenium
@@ -22,14 +24,16 @@ Found Google!
 
 # SSH Forwarding tips
 
-Sometimes you want to access an internal network host, you can remote port forward
+Sometimes you want to access a host behind hops on the network, you can use remote port forwarding.
+
+Note: If you use domain names instead of IPs, you're asking for trouble.
 
 # Remote Port Forward
 
 If you want to access a port hosted on the host from the guest, use a remote port forward.
 
 
-vagrant ssh -- -R4000:localhost:4000 -R5000:localhost:5000
+vagrant ssh -- -R4000:10.0.0.1:4000 -R5000:10.0.0.1:5000
 
 
 ```
@@ -88,6 +92,7 @@ You could also use the ```set_window_size()```  or ```maximize_window()``` prope
 
 ```
 # Python
+driver = webdriver.Chrome()
 driver.set_window_size(2000, 2000)
 
 # /etc/init.d/xvfb
