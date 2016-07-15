@@ -32,11 +32,8 @@ Note: If you use domain names instead of IPs, you're asking for trouble.
 
 If you want to access a port hosted on the host from the guest, use a remote port forward.
 
-
-vagrant ssh -- -R4000:10.0.0.1:4000 -R5000:10.0.0.1:5000
-
-
 ```
+vagrant ssh -- -R4000:10.0.0.1:4000 -R5000:10.0.0.1:5000
 -R [bind_address:]port:host:hostport
 -R [bind_address:]port:local_socket
 -R remote_socket:host:hostport
@@ -47,11 +44,8 @@ vagrant ssh -- -R4000:10.0.0.1:4000 -R5000:10.0.0.1:5000
 
 If you want to access a port hosted on the guest from the host, use a local port forward.
 
-
-vagrant ssh -- -L3000:localhost:3000 -L4000:localhost:4000
-
-
 ```
+vagrant ssh -- -L3000:localhost:3000 -L4000:localhost:4000
 -L [bind_address:]port:host:hostport
 -L [bind_address:]port:remote_socket
 -L local_socket:host:hostport
